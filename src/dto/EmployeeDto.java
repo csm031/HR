@@ -1,6 +1,7 @@
 package dto;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 public class EmployeeDto {
@@ -18,12 +19,15 @@ public class EmployeeDto {
 
 	@Override
 	public String toString() {
+
+		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		String hireDate2 = hireDate.format(dateTimeFormatter);
 		return 	"employeeId=" + employeeId +
 				", firstName='" + firstName + '\'' +
 				", lastName='" + lastName + '\'' +
 				", email='" + email + '\'' +
 				", phoneNumber=" + phoneNumber +
-				", hireDate=" + hireDate +
+				", hireDate=" + hireDate2 +
 				", jobId='" + jobId + '\'' +
 				", salary=" + salary +
 				", commissionPct=" + commissionPct +
