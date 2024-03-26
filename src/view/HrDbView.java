@@ -14,7 +14,6 @@ public class HrDbView {
     }
 
     public void mainMenuView(Model model) {
-        System.out.println("HR 프로그램입니다.");
         String strMainMenu = "";
         System.out.println("============================================");
         strMainMenu += "1.직원관리 | 2.부서관리 | 3.급여관리 | 4.종료";

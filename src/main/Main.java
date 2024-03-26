@@ -11,27 +11,39 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) throws Exception {
+        System.out.println("HR 프로그램입니다.");
         EmployeeService employeeService = new EmployeeService();
         Model model = new Model();
         HrDbView hrDbView = new HrDbView();
+
         int input = 0;
         while (input != 4) {
-
             hrDbView.mainMenuView(model);
             input = (int) model.getAttribute("input");
 
             switch (input) {
                 case 1:
                     EmployeeView employeeView = new EmployeeView();
+
                     int input2 = 0;
 
                     employeeView.mainMenuView(model);
                     input2 = (int) model.getAttribute("input2");
+
                     switch (input2) {
                         case 1:
                             ArrayList<EmployeeDto> resultDtos = employeeService.selectAll();
+
                             model.setAttribute("resultDtos", resultDtos);
-                            employeeView.selectResultView(model);
+                            employeeView.selectAllResultView(model);
+                            break;
+
+                        case 2:
+                            employeeView.DepartmentIdView(model);
+                            int num = (int) model.getAttribute("departmentId");
+                            resultDtos = employeeService.selectDepartment(num);
+                            model.setAttribute("resultDtos", resultDtos);
+                            employeeView.selectDepartmentResultView(model);
                             break;
 
                         default:

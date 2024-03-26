@@ -11,6 +11,10 @@ public class EmployeeService {
 	public ArrayList<EmployeeDto> selectAll() {
 		return dao.selectAll();
 	}
+
+	public ArrayList<EmployeeDto> selectDepartment(int num) {
+		return dao.selectDepartment(num);
+	}
 /*	public void insert(EmployeeDto dto) {
 		dao.insert(dto);
 	}

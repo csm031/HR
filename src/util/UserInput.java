@@ -12,6 +12,11 @@ public class UserInput {
         return Integer.parseInt(sc.nextLine());
     }
 
+    public static int inputDepartmentId() {
+        System.out.println("============================================");
+        System.out.println("부서 번호를 입력하세요.");
+        return Integer.parseInt(sc.nextLine());
+    }
     public static double inputDouble(String st) {
         System.out.println(st + " 키를 입력하세요.>>");
         return Double.parseDouble(sc.nextLine());
