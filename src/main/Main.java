@@ -46,6 +46,14 @@ public class Main {
                             employeeView.selectDepartmentResultView(model);
                             break;
 
+                        case 3:
+                            employeeView.employeeIdView(model);
+                            num = (int) model.getAttribute("employeeId");
+                            resultDtos = employeeService.selectEmployee(num);
+                            model.setAttribute("resultDtos", resultDtos);
+                            employeeView.selectDepartmentResultView(model);
+                            break;
+
                         default:
                             hrDbView.errorOutputView(model);
                             break;

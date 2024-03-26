@@ -14,12 +14,16 @@ public class EmployeeView {
     public void mainMenuView(Model model) {
         System.out.println("============================================");
         String strMainMenu = "";
-        strMainMenu += "1.전체조회 | 2.부서별조회 | 3.이름순 조회";
+        strMainMenu += "1.전체조회 | 2.부서별조회 | 3.직원번호 조회";
         model.setAttribute("input2", UserInput.inputInt(strMainMenu));
     }
 
-    public void DepartmentIdView(Model model){
+    public void DepartmentIdView(Model model) {
         model.setAttribute("departmentId", UserInput.inputDepartmentId());
+    }
+
+    public void employeeIdView(Model model) {
+        model.setAttribute("employeeId", UserInput.inputEmployeeId());
     }
 
     public void selectAllResultView(Model model) {
@@ -30,9 +34,9 @@ public class EmployeeView {
     }
 
     public void selectDepartmentResultView(Model model) {
-        System.out.println(String.format("%-12s %-17s %-17s %-22s %-20s %-14s %-14s %-12s %-12s %-12s %-12s", "[employeeId]", "[firstName]", "[lastName]", "[email]", "[phoneNumber]", "[hireDate]", "[jobId]", "[salary]", "[commissionPct]", "[managerId]", "[departmentId]"));
-        for (EmployeeDto dto : (ArrayList<EmployeeDto>) model.getAttribute("resultDtos")) {
-            System.out.println(dto);
+            System.out.println(String.format("%-12s %-17s %-17s %-22s %-20s %-14s %-14s %-12s %-12s %-12s %-12s", "[employeeId]", "[firstName]", "[lastName]", "[email]", "[phoneNumber]", "[hireDate]", "[jobId]", "[salary]", "[commissionPct]", "[managerId]", "[departmentId]"));
+            for (EmployeeDto dto : (ArrayList<EmployeeDto>) model.getAttribute("resultDtos")) {
+                System.out.println(dto);
+            }
         }
     }
-}
