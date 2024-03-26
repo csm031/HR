@@ -20,6 +20,10 @@ public class EmployeeService {
 		return dao.selectEmployee(num);
 	}
 
+	public ArrayList<EmployeeDto> deleteEmployee(int num) {
+		return dao.deleteEmployee(num);
+	}
+
 /*	public void insert(EmployeeDto dto) {
 		dao.insert(dto);
 	}

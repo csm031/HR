@@ -39,6 +39,17 @@ public class EmployeeDao {
         return getEmployeeDtos(resultDtos, rs);
     }
 
+    public ArrayList<EmployeeDto> deleteEmployee(int num) {
+        ArrayList<EmployeeDto> resultDtos = new ArrayList<EmployeeDto>();
+        int rs = DBConn.prepareStatementQuery2("delete from EMPLOYEES WHERE employee_id = ?",num);
+        if (rs == 1) {
+            System.out.println("삽입 성공");
+        } else {
+            System.out.println("삽입 실패");
+        }
+        return resultDtos;
+    }
+
     private ArrayList<EmployeeDto> getEmployeeDtos(ArrayList<EmployeeDto> resultDtos, ResultSet rs) {
         try {
             while (rs.next()) {

@@ -1,6 +1,7 @@
 package main;
 
 import main.employee.EmployeeSelect;
+import main.employee.EmployeeDelete;
 import model.Model;
 import service.EmployeeService;
 import view.EmployeeView;
@@ -29,6 +30,10 @@ public class Main {
                     switch (input1) {
                         case 1:
                             EmployeeSelect.employeeSelect();
+                            break;
+
+                        case 3:
+                            EmployeeDelete.employeeDelete();
                             break;
 
                         default:

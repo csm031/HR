@@ -26,7 +26,6 @@ public class EmployeeView {
     }
 
 
-
     public void DepartmentIdView(Model model) {
         model.setAttribute("departmentId", UserInput.inputDepartmentId());
     }
@@ -43,9 +42,13 @@ public class EmployeeView {
     }
 
     public void selectDepartmentResultView(Model model) {
-            System.out.println(String.format("%-12s %-17s %-17s %-22s %-20s %-14s %-14s %-12s %-12s %-12s %-12s", "[employeeId]", "[firstName]", "[lastName]", "[email]", "[phoneNumber]", "[hireDate]", "[jobId]", "[salary]", "[commissionPct]", "[managerId]", "[departmentId]"));
-            for (EmployeeDto dto : (ArrayList<EmployeeDto>) model.getAttribute("resultDtos")) {
-                System.out.println(dto);
-            }
+        System.out.println(String.format("%-12s %-17s %-17s %-22s %-20s %-14s %-14s %-12s %-12s %-12s %-12s", "[employeeId]", "[firstName]", "[lastName]", "[email]", "[phoneNumber]", "[hireDate]", "[jobId]", "[salary]", "[commissionPct]", "[managerId]", "[departmentId]"));
+        for (EmployeeDto dto : (ArrayList<EmployeeDto>) model.getAttribute("resultDtos")) {
+            System.out.println(dto);
         }
     }
+
+    public void deleteEmployeeResultView(Model model) {
+        System.out.println("삭제 완료되었습니다.");
+    }
+}

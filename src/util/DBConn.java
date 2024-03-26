@@ -96,4 +96,24 @@ public class DBConn {
         }
         return rs;
     }
+
+    public static int prepareStatementQuery2(String sql, int num) {
+        DBConn.getInstance();
+        int result = 0;
+        if (DBConn.dbCon != null) {
+            try {
+                if (pstmt == null) {
+                    pstmt = dbCon.prepareStatement(sql);
+                }
+                pstmt = dbCon.prepareStatement(sql);
+                pstmt.setInt(1, num);
+                result = pstmt.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println("DB가 연결되지 않았습니다.");
+        }
+        return result;
+    }
 }
