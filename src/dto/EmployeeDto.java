@@ -23,7 +23,7 @@ public class EmployeeDto {
 		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		String hireDate2 = hireDate.format(dateTimeFormatter);
 
-		return  String.format("%-10d %-15s, %-15s %-20s %-15s %-10s %-10s %-10d %-10.2f %-10d %-10d",
+		return String.format("%-10d %-15s %-15s %-20s %-15s %-12s %-12s %-10d %-10.2f %-10d %-10d",
 				employeeId,
 				firstName,
 				lastName,
