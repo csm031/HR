@@ -67,4 +67,18 @@ public class EmployeeDao {
         }
         return resultDtos;
     }
+
+
+    public ArrayList<EmployeeDto> insertEmployee(String[] data) {
+        ArrayList<EmployeeDto> resultDtos = new ArrayList<EmployeeDto>();
+        int rs = DBConn.prepareStatementQuery2("insert into EMPLOYEES (EMPLOYEE_ID," +
+                " FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, HIRE_DATE, JOB_ID, SALARY," +
+                " COMMISSION_PCT, MANAGER_ID, DEPARTMENT_ID ) VALUES (EMPLOYEES_SEQ.nextval,?,?,?,?,sysdate,?,"",)",num);
+        if (rs == 1) {
+            System.out.println("삽입 성공");
+        } else {
+            System.out.println("삽입 실패");
+        }
+        return resultDtos;
+    }
 }

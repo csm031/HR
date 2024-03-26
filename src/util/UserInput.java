@@ -24,6 +24,21 @@ public class UserInput {
         return Integer.parseInt(sc.nextLine());
     }
 
+    public static String[] insertEmployee() {
+        System.out.println("============================================");
+        System.out.println("firstName을 입력하세요.");
+        String firstName = sc.nextLine();
+        System.out.println("lastName을 입력하세요.");
+        String lastName = sc.nextLine();
+        System.out.println("email을 입력하세요.");
+        String email = sc.nextLine();
+        System.out.println("phoneNumber을 입력하세요.");
+        String phoneNumber = sc.nextLine();
+        System.out.println("jobId를 입력하세요.");
+        String jobId = sc.nextLine();
+        return new String[]{firstName, lastName, email, phoneNumber, jobId};
+    }
+
     public static double inputDouble(String st) {
         System.out.println(st + " 키를 입력하세요.>>");
         return Double.parseDouble(sc.nextLine());

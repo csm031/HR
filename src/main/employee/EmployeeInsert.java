@@ -7,16 +7,16 @@ import view.EmployeeView;
 
 import java.util.ArrayList;
 
-public class EmployeeDelete {
+public class EmployeeInsert {
 
-    public static void employeeDelete() {
+    public static void employeeInsert() {
         EmployeeService employeeService = new EmployeeService();
         Model model = new Model();
         EmployeeView employeeView = new EmployeeView();
 
-        employeeView.employeeInsertView(model);
-        int num = (int) model.getAttribute("employeeId");
-        ArrayList<EmployeeDto> resultDtos = employeeService.deleteEmployee(num);
+        employeeView.employeeIdView(model);
+
+        ArrayList<EmployeeDto> resultDtos = employeeService.deleteEmployee( model.getAttribute("employeeInsert"));
         model.setAttribute("resultDtos", resultDtos);
         employeeView.deleteEmployeeResultView(model);
     }

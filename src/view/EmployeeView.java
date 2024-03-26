@@ -14,7 +14,7 @@ public class EmployeeView {
     public void employeeMenuView(Model model) {
         System.out.println("============================================");
         String strMainMenu = "";
-        strMainMenu += "1.조회 | 2.수정 | 3.삭제";
+        strMainMenu += "1.조회 | 2.수정 | 3.삭제 | 4.삽입";
         model.setAttribute("input1", UserInput.inputInt(strMainMenu));
     }
 
@@ -32,6 +32,10 @@ public class EmployeeView {
 
     public void employeeIdView(Model model) {
         model.setAttribute("employeeId", UserInput.inputEmployeeId());
+    }
+
+    public void employeeInsertView(Model model) {
+        model.setAttribute("employeeInsert", UserInput.insertEmployee());
     }
 
     public void selectAllResultView(Model model) {

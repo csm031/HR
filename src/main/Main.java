@@ -1,5 +1,6 @@
 package main;
 
+import main.employee.EmployeeInsert;
 import main.employee.EmployeeSelect;
 import main.employee.EmployeeDelete;
 import model.Model;
@@ -34,6 +35,10 @@ public class Main {
 
                         case 3:
                             EmployeeDelete.employeeDelete();
+                            break;
+
+                        case 4:
+                            EmployeeInsert.employeeInsert();
                             break;
 
                         default:
