@@ -11,12 +11,21 @@ public class EmployeeView {
         // private 생성자로 인스턴스화 방지
     }
 
-    public void mainMenuView(Model model) {
+    public void employeeMenuView(Model model) {
+        System.out.println("============================================");
+        String strMainMenu = "";
+        strMainMenu += "1.조회 | 2.수정 | 3.삭제";
+        model.setAttribute("input1", UserInput.inputInt(strMainMenu));
+    }
+
+    public void selectMenuView(Model model) {
         System.out.println("============================================");
         String strMainMenu = "";
         strMainMenu += "1.전체조회 | 2.부서별조회 | 3.직원번호 조회";
         model.setAttribute("input2", UserInput.inputInt(strMainMenu));
     }
+
+
 
     public void DepartmentIdView(Model model) {
         model.setAttribute("departmentId", UserInput.inputDepartmentId());

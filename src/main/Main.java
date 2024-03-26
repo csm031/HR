@@ -1,12 +1,10 @@
 package main;
 
-import dto.EmployeeDto;
+import main.employee.EmployeeMain;
 import model.Model;
 import service.EmployeeService;
 import view.EmployeeView;
 import view.HrDbView;
-
-import java.util.ArrayList;
 
 public class Main {
 
@@ -22,56 +20,24 @@ public class Main {
             input = (int) model.getAttribute("input");
 
             switch (input) {
-                case 1:
+                case 1: // 직원관리 시작
+
+
                     EmployeeView employeeView = new EmployeeView();
+                    int input1 = 0;
+                    employeeView.employeeMenuView(model);
+                    input1 = (int) model.getAttribute("input1");
 
-                    int input2 = 0;
-
-                    employeeView.mainMenuView(model);
-                    input2 = (int) model.getAttribute("input2");
-
-                    switch (input2) {
+                    switch (input1) {
                         case 1:
-                            ArrayList<EmployeeDto> resultDtos = employeeService.selectAll();
-
-                            model.setAttribute("resultDtos", resultDtos);
-                            employeeView.selectAllResultView(model);
-                            break;
-
-                        case 2:
-                            employeeView.DepartmentIdView(model);
-                            int num = (int) model.getAttribute("departmentId");
-                            resultDtos = employeeService.selectDepartment(num);
-                            model.setAttribute("resultDtos", resultDtos);
-                            employeeView.selectDepartmentResultView(model);
-                            break;
-
-                        case 3:
-                            employeeView.employeeIdView(model);
-                            num = (int) model.getAttribute("employeeId");
-                            resultDtos = employeeService.selectEmployee(num);
-                            model.setAttribute("resultDtos", resultDtos);
-                            employeeView.selectDepartmentResultView(model);
+                            EmployeeMain.employeeMain();
                             break;
 
                         default:
                             hrDbView.errorOutputView(model);
                             break;
                     }
-
-
-
-/*                case 2:
-                    hrDbView.insertInputView(model);
-                    customerService.insert((EmployeeDto) model.getAttribute("dto"));
-                    break;
-
-                case 3:
-                    hrDbView.updateInputView(model);
-                    customerService.update((String) model.getAttribute("updatename"), (int) model.getAttribute("updateid"));
-                    break;*/
-
-                case 4:
+                case 4: // 종료
                     hrDbView.exitOutputView(model);
                     input = (int) model.getAttribute("input");
                     break;
