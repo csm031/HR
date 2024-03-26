@@ -2,6 +2,7 @@ package view;
 
 import model.Model;
 import util.UserInput;
+
 /*
 import JAVA_0319.customer.src.com.human.dto.CustomerDto;
 import JAVA_0319.customer.src.com.human.model.Model;
@@ -17,7 +18,6 @@ public class HrDbView {
         String strMainMenu = null;
         strMainMenu += "| 1.직원관리 | 2.부서관리 | 3.급여관리 | 4.종료";
         model.setAttribute("input", UserInput.inputInt(strMainMenu));
-
     }
 
     public void exitOutputView(Model model) {
@@ -28,4 +28,5 @@ public class HrDbView {
 
     public void errorOutputView(Model model) {
         System.out.println("보기에 있는 숫자를 입력하세요");
+    }
 }

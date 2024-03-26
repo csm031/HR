@@ -3,7 +3,7 @@ package dto;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class CustomerDto {
+public class EmployeeDto {
 	private int employeeId;
 	private String firstName;
 	private String lastName;
@@ -37,7 +37,7 @@ public class CustomerDto {
 	public boolean equals(Object o) {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
-		CustomerDto that = (CustomerDto) o;
+		EmployeeDto that = (EmployeeDto) o;
 		return employeeId == that.employeeId && salary == that.salary && Double.compare(commissionPct, that.commissionPct) == 0 && managerId == that.managerId && departmentId == that.departmentId && Objects.equals(firstName, that.firstName) && Objects.equals(lastName, that.lastName) && Objects.equals(email, that.email) && Objects.equals(phoneNumber, that.phoneNumber) && Objects.equals(hireDate, that.hireDate) && Objects.equals(jobId, that.jobId);
 	}
 
@@ -134,7 +134,7 @@ public class CustomerDto {
 		this.departmentId = departmentId;
 	}
 
-	public CustomerDto(int employeeId, String firstName, String lastName, String email, Double phoneNumber, LocalDateTime hireDate, String jobId, int salary, double commissionPct, int managerId, int departmentId) {
+	public EmployeeDto(int employeeId, String firstName, String lastName, String email, Double phoneNumber, LocalDateTime hireDate, String jobId, int salary, double commissionPct, int managerId, int departmentId) {
 		this.employeeId = employeeId;
 		this.firstName = firstName;
 		this.lastName = lastName;

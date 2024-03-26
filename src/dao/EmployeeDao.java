@@ -1,7 +1,8 @@
 package dao;
 
 import JAVA_0319.customer.src.com.human.dto.CustomerDto;
-import JAVA_0319.customer.src.com.human.util.DBConn;
+import dto.EmployeeDto;
+import util.DBConn;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,8 +10,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 
-public class CustomerDao {
-	public ArrayList<CustomerDto> select() {
+public class EmployeeDao {
+	public ArrayList<EmployeeDto> select() {
 		ArrayList<CustomerDto> resultDtos=new ArrayList<CustomerDto>();
 		ResultSet rs= DBConn.statementQuery(String.format("select * from customer"));
 		try {
@@ -40,7 +41,7 @@ public class CustomerDao {
 		return resultDtos;
 	}
 				
-	public void insert(CustomerDto dto) {
+	public void insert(EmployeeDto dto) {
 		String sql=String.format("insert into customer values("+"%d,'%s',%f,to_date('%s','yyyy-mm-dd HH24:mi:ss'))",
 				dto.getId(),dto.getName(),dto.getHeight(),dto.getBirthday().format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss")));
 		DBConn.statementUpdate(sql);
