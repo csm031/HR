@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class EmployeeSelect {
 
-    public static void employeeMain() {
+    public static void employeeSelect() {
         EmployeeService employeeService = new EmployeeService();
         Model model = new Model();
         HrDbView hrDbView = new HrDbView();
