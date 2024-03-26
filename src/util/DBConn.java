@@ -25,36 +25,37 @@ public class DBConn {
         }
         return dbCon;
     }
+
     public static void dbClose() {
         try {
-            if(rs!=null)
+            if (rs != null)
                 rs.close();
-            if(pstmt!=null)
+            if (pstmt != null)
                 pstmt.close();
-            if(dbCon!=null)
+            if (dbCon != null)
                 dbCon.close();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            rs=null;
-            pstmt=null;
-            dbCon=null;
+            rs = null;
+            pstmt = null;
+            dbCon = null;
         }
     }
 
     public static int statementUpdate(String sql) {
         DBConn.getInstance();
-        int rValue=-1;
-        if(dbCon!=null) {
+        int rValue = -1;
+        if (dbCon != null) {
             try {
-                if(pstmt==null) {
-                    pstmt= (PreparedStatement) dbCon.createStatement();
+                if (pstmt == null) {
+                    pstmt = dbCon.prepareStatement(sql);
                 }
-                rValue=pstmt.executeUpdate(sql);
-            } catch(SQLException e) {
+                rValue = pstmt.executeUpdate(sql);
+            } catch (SQLException e) {
                 e.printStackTrace();
             }
-        }else {
+        } else {
             System.out.println("DB가 연결되지 않았습니다.");
         }
         return rValue;
@@ -62,16 +63,16 @@ public class DBConn {
 
     public static ResultSet statementQuery(String sql) {
         DBConn.getInstance();
-        if(DBConn.dbCon!=null) {
+        if (DBConn.dbCon != null) {
             try {
-                if(pstmt==null) {
-                    pstmt= (PreparedStatement) dbCon.createStatement();
+                if (pstmt == null) {
+                    pstmt =  dbCon.prepareStatement(sql);
                 }
-                rs=pstmt.executeQuery(sql);
-            }catch (SQLException e) {
+                rs = pstmt.executeQuery(sql);
+            } catch (SQLException e) {
                 e.printStackTrace();
             }
-        }else {
+        } else {
             System.out.println("DB가 연결되지 않았습니다.");
         }
         return rs;

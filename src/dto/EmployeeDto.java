@@ -8,7 +8,7 @@ public class EmployeeDto {
 	private String firstName;
 	private String lastName;
 	private String email;
-	private Double phoneNumber;
+	private String phoneNumber;
 	private LocalDateTime hireDate;
 	private String jobId;
 	private int salary;
@@ -18,8 +18,7 @@ public class EmployeeDto {
 
 	@Override
 	public String toString() {
-		return "CustomerDto{" +
-				"employeeId=" + employeeId +
+		return 	"employeeId=" + employeeId +
 				", firstName='" + firstName + '\'' +
 				", lastName='" + lastName + '\'' +
 				", email='" + email + '\'' +
@@ -29,8 +28,7 @@ public class EmployeeDto {
 				", salary=" + salary +
 				", commissionPct=" + commissionPct +
 				", managerId=" + managerId +
-				", departmentId=" + departmentId +
-				'}';
+				", departmentId=" + departmentId;
 	}
 
 	@Override
@@ -78,11 +76,11 @@ public class EmployeeDto {
 		this.email = email;
 	}
 
-	public Double getPhoneNumber() {
+	public String getPhoneNumber() {
 		return phoneNumber;
 	}
 
-	public void setPhoneNumber(Double phoneNumber) {
+	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 
@@ -134,7 +132,7 @@ public class EmployeeDto {
 		this.departmentId = departmentId;
 	}
 
-	public EmployeeDto(int employeeId, String firstName, String lastName, String email, Double phoneNumber, LocalDateTime hireDate, String jobId, int salary, double commissionPct, int managerId, int departmentId) {
+	public EmployeeDto(int employeeId, String firstName, String lastName, String email, String phoneNumber, LocalDateTime hireDate, String jobId, int salary, double commissionPct, int managerId, int departmentId) {
 		this.employeeId = employeeId;
 		this.firstName = firstName;
 		this.lastName = lastName;

@@ -1,36 +1,40 @@
 package dao;
 
-import JAVA_0319.customer.src.com.human.dto.CustomerDto;
 import dto.EmployeeDto;
 import util.DBConn;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 
 public class EmployeeDao {
-	public ArrayList<EmployeeDto> select() {
-		ArrayList<CustomerDto> resultDtos=new ArrayList<CustomerDto>();
-		ResultSet rs= DBConn.statementQuery(String.format("select * from customer"));
+	public ArrayList<EmployeeDto> selectAll() {
+		ArrayList<EmployeeDto> resultDtos=new ArrayList<EmployeeDto>();
+		ResultSet rs= DBConn.statementQuery("select * from EMPLOYEES");
 		try {
 			while(rs.next()) {
-				resultDtos.add(new CustomerDto(rs.getInt("id"), rs.getString("name"), rs.getDouble("height"),
-						rs.getTimestamp("birthday").toLocalDateTime()));
+				resultDtos.add(new EmployeeDto(
+						rs.getInt("employee_id"), rs.getString("first_name"),
+						rs.getString("last_name"), rs.getString("email"),
+						rs.getString("phone_number"), rs.getTimestamp("hire_date").toLocalDateTime(),
+						rs.getString("job_id"),rs.getInt("salary"),
+						rs.getDouble("commission_pct"), rs.getInt("manager_id"),
+						rs.getInt("department_id")));
 			}
 		}catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return resultDtos;	
 	}
-	public CustomerDto selectId(int id) {
-		CustomerDto resultDtos=new CustomerDto();
+
+/*	public EmployeeDto selectId(int id) {
+		EmployeeDto resultDtos=new EmployeeDto();
 		ResultSet rs=DBConn.statementQuery(String.format("select * from customer where id=%d", id));
 		if(rs!=null) {
 			try {
 				rs.next();
-				resultDtos=new CustomerDto(rs.getInt("id"),rs.getString("name"),rs.getDouble("height"),
+				resultDtos=new EmployeeDto(rs.getInt("id"),rs.getString("name"),rs.getDouble("height"),
 						rs.getTimestamp("birthday").toLocalDateTime());
 			}catch (SQLException e) {
 				e.printStackTrace();
@@ -85,5 +89,5 @@ public class EmployeeDao {
 			}
 		}
 		return maxIdValue;
-	}
+	}*/
 }

@@ -2,6 +2,8 @@ package main;
 
 import dto.EmployeeDto;
 import model.Model;
+import service.EmployeeService;
+import view.EmployeeView;
 import view.HrDbView;
 
 import java.util.ArrayList;
@@ -9,7 +11,7 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-
+        EmployeeService employeeService = new EmployeeService();
         Model model = new Model();
         HrDbView hrDbView = new HrDbView();
         int input = 0;
@@ -20,12 +22,26 @@ public class Main {
 
             switch (input) {
                 case 1:
-                    ArrayList<EmployeeDto> resultDtos = customerService.select();
-                    model.setAttribute("resultDtos", resultDtos);
-                    hrDbView.selectResultView(model);
-                    break;
+                    EmployeeView employeeView = new EmployeeView();
+                    int input2 = 0;
 
-                case 2:
+                    employeeView.mainMenuView(model);
+                    input2 = (int) model.getAttribute("input2");
+                    switch (input2) {
+                        case 1:
+                            ArrayList<EmployeeDto> resultDtos = employeeService.selectAll();
+                            model.setAttribute("resultDtos", resultDtos);
+                            employeeView.selectResultView(model);
+                            break;
+
+                        default:
+                            hrDbView.errorOutputView(model);
+                            break;
+                    }
+
+
+
+/*                case 2:
                     hrDbView.insertInputView(model);
                     customerService.insert((EmployeeDto) model.getAttribute("dto"));
                     break;
@@ -33,7 +49,7 @@ public class Main {
                 case 3:
                     hrDbView.updateInputView(model);
                     customerService.update((String) model.getAttribute("updatename"), (int) model.getAttribute("updateid"));
-                    break;
+                    break;*/
 
                 case 4:
                     hrDbView.exitOutputView(model);
