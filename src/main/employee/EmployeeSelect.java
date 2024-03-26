@@ -8,7 +8,7 @@ import view.HrDbView;
 
 import java.util.ArrayList;
 
-public class EmployeeMain {
+public class EmployeeSelect {
 
     public static void employeeMain() {
         EmployeeService employeeService = new EmployeeService();

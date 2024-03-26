@@ -21,8 +21,6 @@ public class Main {
 
             switch (input) {
                 case 1: // 직원관리 시작
-
-
                     EmployeeView employeeView = new EmployeeView();
                     int input1 = 0;
                     employeeView.employeeMenuView(model);
