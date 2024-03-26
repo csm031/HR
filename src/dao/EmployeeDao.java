@@ -6,7 +6,7 @@ import util.DBConn;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
+int a;
 
 public class EmployeeDao {
 	public ArrayList<EmployeeDto> selectAll() {
