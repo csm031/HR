@@ -39,13 +39,18 @@ public class UserInput {
         return new String[]{firstName, lastName, email, phoneNumber, jobId};
     }
 
-    public static double inputDouble(String st) {
-        System.out.println(st + " 키를 입력하세요.>>");
-        return Double.parseDouble(sc.nextLine());
+    public static int updateEmployeeId() {
+        System.out.println("============================================");
+        System.out.println("정보를 수정할 직원 번호를 입력하세요.");
+        return Integer.parseInt(sc.nextLine());
     }
 
-    public static String inputString(String st) {
-        System.out.println(st + " 이름을 입력하세요.>>");
-        return sc.nextLine();
+    public static Object updateEmployeePhoneNum() {
+        Object[] data = new Object[2];
+        data[0] = updateEmployeeId();
+        System.out.println("============================================");
+        System.out.println("변경할 전화번호를 입력하세요.");
+        data[1] = sc.nextLine();
+        return data;
     }
 }

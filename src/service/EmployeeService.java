@@ -28,13 +28,7 @@ public class EmployeeService {
 		return dao.insertEmployee(data);
 	}
 
-/*	public void insert(EmployeeDto dto) {
-		dao.insert(dto);
+	public ArrayList<EmployeeDto> updateEmployee(Object[] data, String set) {
+		return dao.updateEmployee(data, set);
 	}
-	public void update(String updateName, int updateid) {
-		dao.update(updateName, updateid);
-	}
-	public void delete(int id) {
-		dao.delete(id);
-	}	*/
 }

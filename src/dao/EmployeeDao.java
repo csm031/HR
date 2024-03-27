@@ -29,19 +29,19 @@ public class EmployeeDao {
 
     public ArrayList<EmployeeDto> selectDepartment(int num) {
         ArrayList<EmployeeDto> resultDtos = new ArrayList<>();
-        ResultSet rs = DBConn.prepareStatementQuery1("select * from EMPLOYEES WHERE department_id = ?", num);
+        ResultSet rs = DBConn.selectWhereQuery("select * from EMPLOYEES WHERE department_id = ?", num);
         return getEmployeeDtos(resultDtos, rs);
     }
 
     public ArrayList<EmployeeDto> selectEmployee(int num) {
         ArrayList<EmployeeDto> resultDtos = new ArrayList<>();
-        ResultSet rs = DBConn.prepareStatementQuery1("select * from EMPLOYEES WHERE employee_id = ?", num);
+        ResultSet rs = DBConn.selectWhereQuery("select * from EMPLOYEES WHERE employee_id = ?", num);
         return getEmployeeDtos(resultDtos, rs);
     }
 
     public ArrayList<EmployeeDto> deleteEmployee(int num) {
         ArrayList<EmployeeDto> resultDtos = new ArrayList<EmployeeDto>();
-        int rs = DBConn.prepareStatementQuery2("delete from EMPLOYEES WHERE employee_id = ?",num);
+        int rs = DBConn.deleteQuery("delete from EMPLOYEES WHERE employee_id = ?",num);
         if (rs == 1) {
             System.out.println("삽입 성공");
         } else {
@@ -68,10 +68,20 @@ public class EmployeeDao {
         return resultDtos;
     }
 
+    public ArrayList<EmployeeDto> updateEmployee(Object data[], String set) {
+        ArrayList<EmployeeDto> resultDtos = new ArrayList<EmployeeDto>();
+        int rs = DBConn.updateQuery("update employees set "+set+" = ? where employee_id = ?", data);
+        if (rs == 1) {
+            System.out.println("삽입 성공");
+        } else {
+            System.out.println("삽입 실패");
+        }
+        return resultDtos;
+    }
 
     public ArrayList<EmployeeDto> insertEmployee(String[] data) {
         ArrayList<EmployeeDto> resultDtos = new ArrayList<EmployeeDto>();
-        int rs = DBConn.prepareStatementQuery3("insert into EMPLOYEES (EMPLOYEE_ID," +
+        int rs = DBConn.insertQuery("insert into EMPLOYEES (EMPLOYEE_ID," +
                 " FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, HIRE_DATE, JOB_ID, SALARY," +
                 " COMMISSION_PCT, MANAGER_ID, DEPARTMENT_ID ) VALUES (EMPLOYEES_SEQ.nextval,?,?,?,?,sysdate,?,'','','','')",data);
         if (rs == 1) {

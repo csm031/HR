@@ -3,8 +3,10 @@ package main;
 import main.employee.EmployeeInsert;
 import main.employee.EmployeeSelect;
 import main.employee.EmployeeDelete;
+import main.employee.EmployeeUpdate;
 import model.Model;
 import service.EmployeeService;
+import util.DBConn;
 import view.EmployeeView;
 import view.HrDbView;
 
@@ -33,6 +35,10 @@ public class Main {
                             EmployeeSelect.employeeSelect();
                             break;
 
+                        case 2:
+                            EmployeeUpdate.employeeUpdate();
+                            break;
+
                         case 3:
                             EmployeeDelete.employeeDelete();
                             break;
@@ -54,6 +60,7 @@ public class Main {
                     hrDbView.errorOutputView(model);
                     break;
             }
+            DBConn.dbClose();
         }
     }
 }

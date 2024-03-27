@@ -25,6 +25,12 @@ public class EmployeeView {
         model.setAttribute("input2", UserInput.inputInt(strMainMenu));
     }
 
+    public void updateMenuView(Model model) {
+        System.out.println("============================================");
+        String strMainMenu = "";
+        strMainMenu += "1.전화번호 변경 | 2.직급 변경";
+        model.setAttribute("input2", UserInput.inputInt(strMainMenu));
+    }
 
     public void DepartmentIdView(Model model) {
         model.setAttribute("departmentId", UserInput.inputDepartmentId());
@@ -36,6 +42,10 @@ public class EmployeeView {
 
     public void employeeInsertView(Model model) {
         model.setAttribute("employeeInsert", UserInput.insertEmployee());
+    }
+
+    public void employeeUpdateView(Model model) {
+        model.setAttribute("employeeUpdate", UserInput.updateEmployeePhoneNum());
     }
 
     public void selectAllResultView(Model model) {

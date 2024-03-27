@@ -26,47 +26,13 @@ public class DBConn {
         return dbCon;
     }
 
-    public static void dbClose() {
-        try {
-            if (rs != null)
-                rs.close();
-            if (pstmt != null)
-                pstmt.close();
-            if (dbCon != null)
-                dbCon.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            rs = null;
-            pstmt = null;
-            dbCon = null;
-        }
-    }
-
-    public static int statementUpdate(String sql) {
-        DBConn.getInstance();
-        int rValue = -1;
-        if (dbCon != null) {
-            try {
-                if (pstmt == null) {
-                    pstmt = dbCon.prepareStatement(sql);
-                }
-                rValue = pstmt.executeUpdate(sql);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        } else {
-            System.out.println("DB가 연결되지 않았습니다.");
-        }
-        return rValue;
-    }
 
     public static ResultSet statementQuery(String sql) {
         DBConn.getInstance();
         if (DBConn.dbCon != null) {
             try {
                 if (pstmt == null) {
-                    pstmt =  dbCon.prepareStatement(sql);
+                    pstmt = dbCon.prepareStatement(sql);
                 }
                 rs = pstmt.executeQuery(sql);
             } catch (SQLException e) {
@@ -78,12 +44,12 @@ public class DBConn {
         return rs;
     }
 
-    public static ResultSet prepareStatementQuery1(String sql, int num) {
+    public static ResultSet selectWhereQuery(String sql, int num) {
         DBConn.getInstance();
         if (DBConn.dbCon != null) {
             try {
                 if (pstmt == null) {
-                    pstmt =  dbCon.prepareStatement(sql);
+                    pstmt = dbCon.prepareStatement(sql);
                 }
                 pstmt = dbCon.prepareStatement(sql);
                 pstmt.setInt(1, num);
@@ -97,7 +63,7 @@ public class DBConn {
         return rs;
     }
 
-    public static int prepareStatementQuery2(String sql, int num) {
+    public static int deleteQuery(String sql, int num) {
         DBConn.getInstance();
         int result = 0;
         if (DBConn.dbCon != null) {
@@ -117,7 +83,7 @@ public class DBConn {
         return result;
     }
 
-    public static int prepareStatementQuery3(String sql, String[] data) {
+    public static int insertQuery(String sql, String[] data) {
         DBConn.getInstance();
         int result = 0;
         if (DBConn.dbCon != null) {
@@ -139,5 +105,43 @@ public class DBConn {
             System.out.println("DB가 연결되지 않았습니다.");
         }
         return result;
+    }
+
+    public static int updateQuery(String sql, Object[] data) {
+        DBConn.getInstance();
+        int result = 0;
+        if (DBConn.dbCon != null) {
+            try {
+                if (pstmt == null) {
+                    pstmt = dbCon.prepareStatement(sql);
+                }
+                pstmt = dbCon.prepareStatement(sql);
+                pstmt.setString(1, (String) data[1]);
+                pstmt.setInt(2, (int) data[0]);
+                result = pstmt.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println("DB가 연결되지 않았습니다.");
+        }
+        return result;
+    }
+
+    public static void dbClose() {
+        try {
+            if (rs != null)
+                rs.close();
+            if (pstmt != null)
+                pstmt.close();
+            if (dbCon != null)
+                dbCon.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            rs = null;
+            pstmt = null;
+            dbCon = null;
+        }
     }
 }

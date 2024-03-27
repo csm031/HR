@@ -10,6 +10,10 @@ public class Model {
 	public  Object getAttribute(String key) {
 		return hashmap.get(key);
 	}
+
+	public  Object[] getAttributes(String key) {
+		return (Object[]) hashmap.get(key);
+	}
 	public  void removeAttribute(String key) {
 		hashmap.remove(key);
 	}
