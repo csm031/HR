@@ -116,4 +116,28 @@ public class DBConn {
         }
         return result;
     }
+
+    public static int prepareStatementQuery3(String sql, String[] data) {
+        DBConn.getInstance();
+        int result = 0;
+        if (DBConn.dbCon != null) {
+            try {
+                if (pstmt == null) {
+                    pstmt = dbCon.prepareStatement(sql);
+                }
+                pstmt = dbCon.prepareStatement(sql);
+                pstmt.setString(1, data[0]);
+                pstmt.setString(2, data[1]);
+                pstmt.setString(3, data[2]);
+                pstmt.setString(4, data[3]);
+                pstmt.setString(5, data[4]);
+                result = pstmt.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println("DB가 연결되지 않았습니다.");
+        }
+        return result;
+    }
 }

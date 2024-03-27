@@ -14,10 +14,10 @@ public class EmployeeInsert {
         Model model = new Model();
         EmployeeView employeeView = new EmployeeView();
 
-        employeeView.employeeIdView(model);
-
-        ArrayList<EmployeeDto> resultDtos = employeeService.deleteEmployee( model.getAttribute("employeeInsert"));
+        employeeView.employeeInsertView(model);
+        String[] insertsInfo = (String[]) model.getAttribute("employeeInsert");
+        model.getAttribute("employeeInsert");
+        ArrayList<EmployeeDto> resultDtos = employeeService.insertEmployee(insertsInfo);
         model.setAttribute("resultDtos", resultDtos);
-        employeeView.deleteEmployeeResultView(model);
     }
 }

@@ -25,7 +25,7 @@ public class EmployeeService {
 	}
 
 	public ArrayList<EmployeeDto> insertEmployee(String[] data) {
-		return dao.deleteEmployee(data);
+		return dao.insertEmployee(data);
 	}
 
 /*	public void insert(EmployeeDto dto) {
