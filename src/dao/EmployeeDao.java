@@ -68,7 +68,7 @@ public class EmployeeDao {
         return resultDtos;
     }
 
-    public ArrayList<EmployeeDto> updateEmployee(Object data[], String set) {
+    public ArrayList<EmployeeDto> updateEmployee(Object[] data, String set) {
         ArrayList<EmployeeDto> resultDtos = new ArrayList<EmployeeDto>();
         int rs = DBConn.updateQuery("update employees set "+set+" = ? where employee_id = ?", data);
         if (rs == 1) {
@@ -78,6 +78,28 @@ public class EmployeeDao {
         }
         return resultDtos;
     }
+
+
+// 직급 업데이트
+    public ArrayList<EmployeeDto> updateEmployee2(Object[] data, String set) {
+        ArrayList<EmployeeDto> resultDtos = new ArrayList<EmployeeDto>();
+        int rs = DBConn.updateQuery("update employees set "+set+" = ? where employee_id = ?", data);
+        if (rs == 1) {
+            System.out.println("삽입 성공");
+            rs = DBConn.updateQuery2("update employees set employees.salary = (select jobs.min_salary from jobs where employees.job_id = jobs.job_id)" +
+                    "where employee_id = ?", data);
+            if (rs == 1) {
+                System.out.println("salary가 업데이트 되었습니다.");
+            } else {
+                System.out.println("salary 업데이트 실패하였습니다.");
+            }
+
+        } else {
+            System.out.println("삽입 실패");
+        }
+        return resultDtos;
+    }
+
 
     public ArrayList<EmployeeDto> insertEmployee(String[] data) {
         ArrayList<EmployeeDto> resultDtos = new ArrayList<EmployeeDto>();

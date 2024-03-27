@@ -31,4 +31,8 @@ public class EmployeeService {
 	public ArrayList<EmployeeDto> updateEmployee(Object[] data, String set) {
 		return dao.updateEmployee(data, set);
 	}
+
+	public ArrayList<EmployeeDto> updateEmployee2(Object[] data, String set) {
+		return dao.updateEmployee2(data, set);
+	}
 }

@@ -33,9 +33,10 @@ public class EmployeeUpdate {
             case 2:
                 set = "JOB_ID";
                 employeeView.employeeJobIdUpdateView(model);
-                resultDtos = employeeService.updateEmployee(model.getAttributes("employeeUpdate"), set);
+                resultDtos = employeeService.updateEmployee2(model.getAttributes("employeeUpdate"), set);
                 model.setAttribute("resultDtos", resultDtos);
                 break;
+
             default:
                 hrDbView.errorOutputView(model);
                 break;

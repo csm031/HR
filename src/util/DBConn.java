@@ -128,6 +128,26 @@ public class DBConn {
         return result;
     }
 
+    public static int updateQuery2(String sql, Object[] data) {
+        DBConn.getInstance();
+        int result = 0;
+        if (DBConn.dbCon != null) {
+            try {
+                if (pstmt == null) {
+                    pstmt = dbCon.prepareStatement(sql);
+                }
+                pstmt = dbCon.prepareStatement(sql);
+                pstmt.setInt(1, (int) data[0]);
+                result = pstmt.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println("DB가 연결되지 않았습니다.");
+        }
+        return result;
+    }
+
     public static void dbClose() {
         try {
             if (rs != null)
