@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class EmployeeDao {
     public ArrayList<EmployeeDto> selectAll() {
-        ArrayList<EmployeeDto> resultDtos = new ArrayList<EmployeeDto>();
+        ArrayList<EmployeeDto> resultDtos = new ArrayList<>();
         ResultSet rs = DBConn.statementQuery("select * from EMPLOYEES");
         try {
             while (rs.next()) {
@@ -40,7 +40,7 @@ public class EmployeeDao {
     }
 
     public ArrayList<EmployeeDto> deleteEmployee(int num) {
-        ArrayList<EmployeeDto> resultDtos = new ArrayList<EmployeeDto>();
+        ArrayList<EmployeeDto> resultDtos = new ArrayList<>();
         int rs = DBConn.deleteQuery("delete from EMPLOYEES WHERE employee_id = ?",num);
         if (rs == 1) {
             System.out.println("삽입 성공");
@@ -69,7 +69,7 @@ public class EmployeeDao {
     }
 
     public ArrayList<EmployeeDto> updateEmployee(Object[] data, String set) {
-        ArrayList<EmployeeDto> resultDtos = new ArrayList<EmployeeDto>();
+        ArrayList<EmployeeDto> resultDtos = new ArrayList<>();
         int rs = DBConn.updateQuery("update employees set "+set+" = ? where employee_id = ?", data);
         if (rs == 1) {
             System.out.println("삽입 성공");
@@ -82,7 +82,7 @@ public class EmployeeDao {
 
 // 직급 업데이트
     public ArrayList<EmployeeDto> updateEmployee2(Object[] data, String set) {
-        ArrayList<EmployeeDto> resultDtos = new ArrayList<EmployeeDto>();
+        ArrayList<EmployeeDto> resultDtos = new ArrayList<>();
         int rs = DBConn.updateQuery("update employees set "+set+" = ? where employee_id = ?", data);
         if (rs == 1) {
             System.out.println("삽입 성공");
@@ -102,7 +102,7 @@ public class EmployeeDao {
 
 
     public ArrayList<EmployeeDto> insertEmployee(String[] data) {
-        ArrayList<EmployeeDto> resultDtos = new ArrayList<EmployeeDto>();
+        ArrayList<EmployeeDto> resultDtos = new ArrayList<>();
         int rs = DBConn.insertQuery("insert into EMPLOYEES (EMPLOYEE_ID," +
                 " FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, HIRE_DATE, JOB_ID, SALARY," +
                 " COMMISSION_PCT, MANAGER_ID, DEPARTMENT_ID ) VALUES (EMPLOYEES_SEQ.nextval,?,?,?,?,sysdate,?,'','','','')",data);
