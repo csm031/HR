@@ -14,7 +14,6 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
         System.out.println("HR 프로그램입니다.");
-        EmployeeService employeeService = new EmployeeService();
         Model model = new Model();
         HrDbView hrDbView = new HrDbView();
 
