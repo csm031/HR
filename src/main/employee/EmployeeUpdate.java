@@ -25,13 +25,17 @@ public class EmployeeUpdate {
         switch (input2){
             case 1:
                 String set = "phone_number";
-                employeeView.employeeUpdateView(model);
+                employeeView.employeePhoneUpdateView(model);
                 ArrayList<EmployeeDto> resultDtos = employeeService.updateEmployee(model.getAttributes("employeeUpdate"), set);
                 model.setAttribute("resultDtos", resultDtos);
                 break;
 
             case 2:
-
+                set = "JOB_ID";
+                employeeView.employeeJobIdUpdateView(model);
+                resultDtos = employeeService.updateEmployee(model.getAttributes("employeeUpdate"), set);
+                model.setAttribute("resultDtos", resultDtos);
+                break;
             default:
                 hrDbView.errorOutputView(model);
                 break;

@@ -44,8 +44,12 @@ public class EmployeeView {
         model.setAttribute("employeeInsert", UserInput.insertEmployee());
     }
 
-    public void employeeUpdateView(Model model) {
+    public void employeePhoneUpdateView(Model model) {
         model.setAttribute("employeeUpdate", UserInput.updateEmployeePhoneNum());
+    }
+
+    public void employeeJobIdUpdateView(Model model) {
+        model.setAttribute("employeeUpdate", UserInput.updateEmployeeJobId());
     }
 
     public void selectAllResultView(Model model) {

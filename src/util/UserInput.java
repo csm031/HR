@@ -53,4 +53,13 @@ public class UserInput {
         data[1] = sc.nextLine();
         return data;
     }
+
+    public static Object updateEmployeeJobId() {
+        Object[] data = new Object[2];
+        data[0] = updateEmployeeId();
+        System.out.println("============================================");
+        System.out.println("변경할 Job_Id를 입력하세요.");
+        data[1] = sc.nextLine();
+        return data;
+    }
 }
