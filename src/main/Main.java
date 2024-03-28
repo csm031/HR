@@ -28,6 +28,7 @@ public class Main {
                     employeeView.employeeMenuView(model);
                     input1 = (int) model.getAttribute("input1");
 
+
                     switch (input1) {
                         case 1:
                             EmployeeSelect.employeeSelect();
@@ -49,6 +50,8 @@ public class Main {
                             hrDbView.errorOutputView(model);
                             break;
                     }
+                    break;
+
                 case 4: // 종료
                     hrDbView.exitOutputView(model);
                     input = (int) model.getAttribute("input");
