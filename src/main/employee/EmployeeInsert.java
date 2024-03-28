@@ -1,11 +1,8 @@
 package main.employee;
 
-import dto.EmployeeDto;
 import model.Model;
 import service.EmployeeService;
 import view.EmployeeView;
-
-import java.util.ArrayList;
 
 public class EmployeeInsert {
 
@@ -16,8 +13,6 @@ public class EmployeeInsert {
 
         employeeView.employeeInsertView(model);
         String[] insertsInfo = (String[]) model.getAttribute("employeeInsert");
-        model.getAttribute("employeeInsert");
-        ArrayList<EmployeeDto> resultDtos = employeeService.insertEmployee(insertsInfo);
-        model.setAttribute("resultDtos", resultDtos);
+        employeeService.insertEmployee(insertsInfo);
     }
 }
